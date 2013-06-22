@@ -1,10 +1,13 @@
-<h1>Home#index</h1>
+<h1>Welcome!</h1>
 
-<%= link_to 'Ingredients', '/ingredients' %>
-<%= link_to 'Recipes', '/recipes' %>
-
+<p>
 <%= form_tag search_path do %>
   <%= select_tag :ingredient_id,options_for_select(Ingredient.all.collect{|ingredient| [ingredient.name, ingredient.id]}) %>
   <%= submit_tag 'GO' %>
 
   <% end %> 
+</p>
+
+<p>
+  Don't know what to do with the left-over spinach and chicken in your fridge? That's why the Railsfood app was created! Railsfood matches the ingredients you have with tasty recipes from around the world.
+</p>
