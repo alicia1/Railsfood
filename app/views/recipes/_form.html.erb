@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
- 
+  <div class="field">
+    <%= f.label :salad_pic %><br />
+    <%= f.file_field :salad_pic %>
+  </div>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

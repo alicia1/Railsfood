@@ -11,6 +11,8 @@
 <p>
   <b>Description:</b>
   <%= @recipe.description %>
+  <%= image_tag(@recipe.salad_pic_url) if @recipe.salad_pic? %>
+
 </p>
 
 
