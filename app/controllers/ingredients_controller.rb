@@ -1,4 +1,6 @@
 class IngredientsController < ApplicationController
+
+  before_filter :authorise, except: [:index, :show]
   # GET /ingredients
   # GET /ingredients.json
   def index
@@ -79,5 +81,11 @@ class IngredientsController < ApplicationController
       format.html { redirect_to ingredients_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def authorise
+    authorize! :manage, Ingredient.new
   end
 end

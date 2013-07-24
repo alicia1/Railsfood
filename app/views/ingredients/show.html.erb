@@ -5,6 +5,7 @@
   <%= @ingredient.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
+<% if can? :update, @ingredient %>
+	<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
+<% end %>
 <%= link_to 'Back', ingredients_path %>

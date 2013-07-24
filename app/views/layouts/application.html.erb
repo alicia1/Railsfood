@@ -13,14 +13,25 @@
     <div class="container">
       <a class="brand" href="/">The Railsfood app</a>
       <ul class="nav">
-        <li class="active"><a href="/ingredients">Ingredients</a></li>
-        <li class="active"><a href="/recipes">Recipes</a></li>
-
+        <li class="<%= 'active' if request.fullpath == '/ingredients'%>"><a href="/ingredients">Ingredients</a></li>
+        <li class="<%= 'active' if request.fullpath == '/recipes'%>"><a href="/recipes">Recipes</a></li>
+        <% if !current_user %>
+          <li><%=link_to "Sign up", new_user_registration_path %></li>
+          <li><%=link_to "Sign in", new_user_session_path %></li>
+        <% else %>
+          <li><%=link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div>
   </div>
 </div>
 <div class="container">
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
   <%= yield %>
 </div>
 <footer>

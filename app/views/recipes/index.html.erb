@@ -14,12 +14,15 @@
     <td><%= recipe.name %></td>
     <td><%= recipe.description %></td>
     <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if can? :update, recipe %>
+      <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+      <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>  
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Recipe', new_recipe_path %>
+<% if can? :update, @recipes %>
+  <%= link_to 'New Recipe', new_recipe_path %>
+<% end %>
