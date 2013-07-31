@@ -5,7 +5,7 @@
   <%= 
     select_tag :ingredient_id, options_for_select(
       Ingredient.all.collect {|ingredient| [ingredient.name, ingredient.id]}
-    ) 
+    ), multiple: true 
   %>
   <%= submit_tag 'GO' %>
 

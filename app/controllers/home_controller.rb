@@ -3,8 +3,10 @@ class HomeController < ApplicationController
   end
 
   def search
-    ingredient = Ingredient.find(params[:ingredient_id])
-    @recipes = ingredient.recipes
+    ingredients = Ingredient.find(params[:ingredient_id])
+    @recipes = ingredients.map do |ingredient|
+    	ingredient.recipes 
+    end.flatten.uniq
   end
 
 end
