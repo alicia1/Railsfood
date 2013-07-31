@@ -1,5 +1,7 @@
 Railsfood::Application.routes.draw do
 
+  match '/rate' => 'rater#create', :as => 'rate'
+
   devise_for :users
 
   root :to => 'home#index'

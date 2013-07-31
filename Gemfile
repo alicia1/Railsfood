@@ -5,6 +5,8 @@ gem 'rails', '3.2.13'
 gem 'carrierwave'
 
 gem 'devise'
+
+gem 'letsrate'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

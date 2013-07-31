@@ -3,6 +3,7 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, :through => :ingredient_uses
   attr_accessible :description, :name, :ingredient_ids, :salad_pic
   mount_uploader :salad_pic, SaladPicUploader
+  letsrate_rateable "flavour"
 
 
   def ingredient_names
