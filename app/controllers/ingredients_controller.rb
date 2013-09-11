@@ -4,7 +4,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.where("name LIKE :search_term", search_term: "#{params[:term]}%")
 
     respond_to do |format|
       format.html # index.html.erb

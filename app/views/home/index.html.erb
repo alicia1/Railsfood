@@ -1,16 +1,11 @@
 <h1>Welcome!</h1>
 
 <p>
-<%= form_tag search_path do %>
-  <%= 
-    select_tag :ingredient_id, options_for_select(
-      Ingredient.all.collect {|ingredient| [ingredient.name, ingredient.id]}
-    ), multiple: true 
-  %>
-  <%= submit_tag 'GO' %>
-
-  <% end %> 
+  <input type="text" id="search"/>
+  <input id="submit" type="submit"/>
 </p>
+
+<div class="searchresults"></div>
 
 <p>
   Don't know what to do with the left-over spinach and chicken in your fridge? That's why the Railsfood app was created! Railsfood matches the ingredients you have with tasty recipes from around the world.
