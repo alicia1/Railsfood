@@ -29,15 +29,18 @@ $(document).ready(function() {
         }
     });
 
-    $("#submit").click(function() {
+  $("#ingredient_form").submit(function() {
       var selected = $("#search").select2('data');
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:3000/search",
-        data: {ingredient_id : [1,2,3]},
-        success: function(data) {
-          $(".searchresults").html(data)
-        }
-      });
+      var ingredient_array = new Array();
+      for (var i = 0; i < selected.length; i++) { 
+        ingredient_array[i] = selected[i].id
+      } 
+      var hiddenField = document.createElement("input");
+      hiddenField.setAttribute("type", "hidden");
+      hiddenField.setAttribute("id", "ingredient_id");
+      hiddenField.setAttribute("name", "ingredient_id");
+      hiddenField.setAttribute("value", ingredient_array);
+      $('#ingredient_form').append(hiddenField);
     });
 });
+

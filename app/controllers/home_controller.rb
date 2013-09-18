@@ -1,9 +1,11 @@
 class HomeController < ApplicationController
+  respond_to :json, :html
+
   def index
   end
 
   def search
-    ingredients = Ingredient.find(params[:ingredient_id])
+    ingredients = Ingredient.find(params[:ingredient_id].split(','))
   	# binding.pry
     # @recipes = ingredients.map do |ingredient|
     # 	ingredient.recipes 
@@ -14,9 +16,8 @@ class HomeController < ApplicationController
     ingredients.each do |ingredient|
      	result = prev & ingredient.recipes
      end
-
      @recipes = result.flatten
-     #use inject and intersection
+     respond_with @recipes
 
   end
 
