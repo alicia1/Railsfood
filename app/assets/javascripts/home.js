@@ -26,7 +26,10 @@ $(document).ready(function() {
           return data.name ; },
          formatSelection: function(data) {
           return data.name; 
-        }
+        },
+
+      
+      width: '300px'
     });
 
   $("#ingredient_form").submit(function() {

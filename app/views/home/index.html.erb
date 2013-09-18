@@ -1,7 +1,7 @@
 <h1>Welcome!</h1>
 
 <%= form_tag("/search", method: "post", id: "ingredient_form") do %>
-  <input type="text" id="search"/>
+  <input type="hidden" id="search" />
   <input id="submit" type="submit"/>
 <%end%>
 
